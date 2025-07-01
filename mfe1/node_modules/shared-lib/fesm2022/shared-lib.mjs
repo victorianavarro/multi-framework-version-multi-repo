@@ -1,0 +1,98 @@
+import * as i0 from '@angular/core';
+import { Injectable, Component, NgModule } from '@angular/core';
+import * as i1 from 'auth-lib';
+import { AuthLibModule } from 'auth-lib';
+
+class SharedLibService {
+    constructor() { }
+    static ɵfac = function SharedLibService_Factory(t) { return new (t || SharedLibService)(); };
+    static ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: SharedLibService, factory: SharedLibService.ɵfac, providedIn: 'root' });
+}
+(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SharedLibService, [{
+        type: Injectable,
+        args: [{
+                providedIn: 'root'
+            }]
+    }], () => [], null); })();
+
+class SharedLibComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+    static ɵfac = function SharedLibComponent_Factory(t) { return new (t || SharedLibComponent)(); };
+    static ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: SharedLibComponent, selectors: [["lib-shared-lib"]], decls: 3, vars: 0, template: function SharedLibComponent_Template(rf, ctx) { if (rf & 1) {
+            i0.ɵɵelementStart(0, "h1");
+            i0.ɵɵtext(1, "Shared");
+            i0.ɵɵelementEnd();
+            i0.ɵɵelement(2, "lib-auth-lib");
+        } }, dependencies: [i1.AuthLibComponent], encapsulation: 2 });
+}
+(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SharedLibComponent, [{
+        type: Component,
+        args: [{
+                selector: 'lib-shared-lib',
+                template: `
+    <h1>Shared</h1>
+    <lib-auth-lib></lib-auth-lib>
+  `
+            }]
+    }], () => [], null); })();
+(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassDebugInfo(SharedLibComponent, { className: "SharedLibComponent", filePath: "lib/shared-lib.component.ts", lineNumber: 10 }); })();
+
+class OtherComponent {
+    service;
+    // user = 'A';
+    user;
+    constructor(service) {
+        this.service = service;
+        this.user = this.service.user;
+    }
+    ngOnInit() {
+    }
+    static ɵfac = function OtherComponent_Factory(t) { return new (t || OtherComponent)(i0.ɵɵdirectiveInject(i1.AuthLibService)); };
+    static ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: OtherComponent, selectors: [["lib-other"]], decls: 2, vars: 1, template: function OtherComponent_Template(rf, ctx) { if (rf & 1) {
+            i0.ɵɵelementStart(0, "p");
+            i0.ɵɵtext(1);
+            i0.ɵɵelementEnd();
+        } if (rf & 2) {
+            i0.ɵɵadvance();
+            i0.ɵɵtextInterpolate1("User: ", ctx.user, "");
+        } }, encapsulation: 2 });
+}
+(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(OtherComponent, [{
+        type: Component,
+        args: [{
+                selector: 'lib-other',
+                template: '<p>User: {{user}}</p>',
+                // styleUrls: ['./other.component.css']
+            }]
+    }], () => [{ type: i1.AuthLibService }], null); })();
+(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassDebugInfo(OtherComponent, { className: "OtherComponent", filePath: "lib/other/other.component.ts", lineNumber: 9 }); })();
+
+class SharedLibModule {
+    static ɵfac = function SharedLibModule_Factory(t) { return new (t || SharedLibModule)(); };
+    static ɵmod = /*@__PURE__*/ i0.ɵɵdefineNgModule({ type: SharedLibModule });
+    static ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ imports: [AuthLibModule] });
+}
+(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SharedLibModule, [{
+        type: NgModule,
+        args: [{
+                declarations: [SharedLibComponent, OtherComponent],
+                imports: [
+                    AuthLibModule,
+                ],
+                exports: [SharedLibComponent, OtherComponent]
+            }]
+    }], null, null); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(SharedLibModule, { declarations: [SharedLibComponent, OtherComponent], imports: [AuthLibModule], exports: [SharedLibComponent, OtherComponent] }); })();
+
+/*
+ * Public API Surface of shared-lib
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+export { OtherComponent, SharedLibComponent, SharedLibModule, SharedLibService };
+//# sourceMappingURL=shared-lib.mjs.map

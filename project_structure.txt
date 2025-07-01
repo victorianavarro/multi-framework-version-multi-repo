@@ -1,0 +1,69 @@
+.
+├── auth-lib
+│   ├── angular.json
+│   ├── dist
+│   ├── karma.conf.js
+│   ├── ng-package.json
+│   ├── node_modules
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── README.md
+│   ├── src
+│   ├── tsconfig.json
+│   ├── tsconfig.lib.json
+│   ├── tsconfig.lib.prod.json
+│   ├── tsconfig.spec.json
+│   └── tslint.json
+├── mfe1
+│   ├── angular.json
+│   ├── dist
+│   ├── karma.conf.js
+│   ├── node_modules
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── src
+│   ├── tsconfig.app.json
+│   ├── tsconfig.json
+│   ├── tsconfig.spec.json
+│   ├── tslint.json
+│   ├── webpack.config.js
+│   ├── webpack.config.old
+│   └── webpack.prod.config.js
+├── out
+│   ├── auth-lib-0.0.1.tgz
+│   └── shared-lib-0.0.1.tgz
+├── project_structure.txt
+├── README.md
+├── shared-lib
+│   ├── angular.json
+│   ├── dist
+│   ├── karma.conf.js
+│   ├── ng-package.json
+│   ├── node_modules
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── README.md
+│   ├── src
+│   ├── tsconfig.json
+│   ├── tsconfig.lib.json
+│   ├── tsconfig.lib.prod.json
+│   ├── tsconfig.spec.json
+│   └── tslint.json
+├── shell
+│   ├── angular.json
+│   ├── dist
+│   ├── karma.conf.js
+│   ├── node_modules
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── src
+│   ├── tsconfig.app.json
+│   ├── tsconfig.json
+│   ├── tsconfig.spec.json
+│   ├── tslint.json
+│   ├── webpack.config.js
+│   ├── webpack.config.old
+│   └── webpack.prod.config.js
+└── staticwebapp.config.json
+
+17 directories, 49 files

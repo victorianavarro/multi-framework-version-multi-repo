@@ -1,0 +1,89 @@
+[
+  {
+    "componentType": "remote",
+    "path": "flights",
+    "navigatePath": "flights/flights-search",
+    "remoteEntry": "http://localhost:3000/remoteEntry.js",
+    "exposedModule": "./FlightsModule",
+    "moduleName": "FlightsModule",
+    "options": {}
+  },
+  {
+    "componentType": "remote",
+    "path": "test",
+    "navigatePath": "test/test",
+    "remoteEntry": "http://localhost:3000/remoteEntry.js",
+    "exposedModule": "./TestModule",
+    "moduleName": "TestModule",
+    "options": {}
+  },
+  {
+    "componentType": "remote",
+    "path": "whole_app",
+    "remoteEntry": "http://localhost:3000/remoteEntry.js",
+    "exposedModule": "./AppModule",
+    "moduleName": "AppModule",
+    "options": {}
+  },
+  {
+    "componentType": "webComponent",
+    "path": "react",
+    "webComponentData": {
+      "remoteEntry": "https://witty-wave-0a695f710.azurestaticapps.net/remoteEntry.js",
+      "remoteName": "react",
+      "exposedModule": "./web-components",
+      "elementName": "react-element"
+    }
+  },
+  {
+    "componentType": "webComponent",
+    "path": "angular1",
+    "webComponentData": {
+      "remoteEntry": "https://nice-grass-018f7d910.azurestaticapps.net/remoteEntry.js",
+      "remoteName": "angular1",
+      "exposedModule": "./web-components",
+      "elementName": "angular1-element"
+    }
+  },
+  {
+    "componentType": "webComponent",
+    "path": "angular2",
+    "webComponentData": {
+      "remoteEntry": "https://gray-pond-030798810.azurestaticapps.net/remoteEntry.js",
+      "remoteName": "angular2",
+      "exposedModule": "./web-components",
+      "elementName": "angular2-element"
+    }
+  },
+  {
+    "componentType": "webComponent",
+    "path": "angular3",
+    "matcher": "startsWith",
+    "webComponentData": {
+      "remoteEntry": "https://gray-river-0b8c23a10.azurestaticapps.net/remoteEntry.js",
+      "remoteName": "angular3",
+      "exposedModule": "./web-components",
+      "elementName": "angular3-element"
+    }
+  },
+  {
+    "componentType": "webComponent",
+    "path": "vue",
+    "webComponentData": {
+      "remoteEntry": "https://mango-field-0d0778c10.azurestaticapps.net/remoteEntry.js",
+      "remoteName": "vue",
+      "exposedModule": "./web-components",
+      "elementName": "vue-element"
+    }
+  },
+  {
+    "componentType": "webComponent",
+    "path": "angularjs",
+    "webComponentData": {
+      "remoteEntry": "https://calm-mud-0a3ee4a10.azurestaticapps.net/remoteEntry.js",
+      "remoteName": "angularjs",
+      "exposedModule": "./web-components",
+      "elementName": "angularjs-element"
+    }
+  }
+]
