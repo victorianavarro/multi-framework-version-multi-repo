@@ -4,7 +4,7 @@ import { SharedLibService } from '../shared-lib.service';
 
 @Component({
   selector: 'lib-other',
-  template: '<p>User: {{user}}</p>',
+  templateUrl: './other.component.html'
   // styleUrls: ['./other.component.css']
 })
 export class OtherComponent implements OnInit {

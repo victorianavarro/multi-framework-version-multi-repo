@@ -44,7 +44,6 @@ export class AppModule {
 
         config.forEach((mfe) => {
           if (mfe.componentType === 'remote') {
-            console.log("Loading " + mfe.path);
             mfeRoutes.push({
               path: mfe.path,
               loadChildren: () => loadRemoteModule({
@@ -74,7 +73,7 @@ export class AppModule {
       },
       error: (error) => { console.error('Error loading MFE configuration:', error) },
       complete: () => {
-        console.log('Configuration loading complete');
+        // console.log('Configuration loading complete');
       }
     });
   }

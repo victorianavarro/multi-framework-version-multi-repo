@@ -36,7 +36,7 @@ class SharedLibComponent {
     ngOnInit() {
     }
     static ɵfac = function SharedLibComponent_Factory(t) { return new (t || SharedLibComponent)(); };
-    static ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: SharedLibComponent, selectors: [["lib-shared-lib"]], decls: 3, vars: 0, template: function SharedLibComponent_Template(rf, ctx) { if (rf & 1) {
+    static ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: SharedLibComponent, selectors: [["lib-shared-component"]], decls: 3, vars: 0, template: function SharedLibComponent_Template(rf, ctx) { if (rf & 1) {
             i0.ɵɵelementStart(0, "h1");
             i0.ɵɵtext(1, "Shared");
             i0.ɵɵelementEnd();
@@ -46,7 +46,7 @@ class SharedLibComponent {
 (() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SharedLibComponent, [{
         type: Component,
         args: [{
-                selector: 'lib-shared-lib',
+                selector: 'lib-shared-component',
                 template: `
     <h1>Shared</h1>
     <lib-auth-lib></lib-auth-lib>
@@ -70,22 +70,23 @@ class OtherComponent {
         this.libService.data$.subscribe(data => this.data = data);
     }
     static ɵfac = function OtherComponent_Factory(t) { return new (t || OtherComponent)(i0.ɵɵdirectiveInject(i1$1.AuthLibService), i0.ɵɵdirectiveInject(SharedLibService)); };
-    static ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: OtherComponent, selectors: [["lib-other"]], decls: 2, vars: 1, template: function OtherComponent_Template(rf, ctx) { if (rf & 1) {
+    static ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: OtherComponent, selectors: [["lib-other"]], decls: 4, vars: 2, template: function OtherComponent_Template(rf, ctx) { if (rf & 1) {
             i0.ɵɵelementStart(0, "p");
             i0.ɵɵtext(1);
+            i0.ɵɵelementEnd();
+            i0.ɵɵelementStart(2, "p");
+            i0.ɵɵtext(3);
             i0.ɵɵelementEnd();
         } if (rf & 2) {
             i0.ɵɵadvance();
             i0.ɵɵtextInterpolate1("User: ", ctx.user, "");
+            i0.ɵɵadvance(2);
+            i0.ɵɵtextInterpolate1("Lib data: ", ctx.data, "");
         } }, encapsulation: 2 });
 }
 (() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(OtherComponent, [{
         type: Component,
-        args: [{
-                selector: 'lib-other',
-                template: '<p>User: {{user}}</p>',
-                // styleUrls: ['./other.component.css']
-            }]
+        args: [{ selector: 'lib-other', template: "<p>User: {{user}}</p>\n<p>Lib data: {{ data }}</p>" }]
     }], () => [{ type: i1$1.AuthLibService }, { type: SharedLibService }], null); })();
 (() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassDebugInfo(OtherComponent, { className: "OtherComponent", filePath: "lib/other/other.component.ts", lineNumber: 10 }); })();
 
