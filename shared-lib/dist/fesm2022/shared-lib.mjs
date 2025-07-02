@@ -1,11 +1,27 @@
 import * as i0 from '@angular/core';
 import { Injectable, Component, NgModule } from '@angular/core';
-import * as i1 from 'auth-lib';
+import { BehaviorSubject, map } from 'rxjs';
+import * as i1 from '@angular/common/http';
+import * as i1$1 from 'auth-lib';
 import { AuthLibModule } from 'auth-lib';
 
 class SharedLibService {
-    constructor() { }
-    static ɵfac = function SharedLibService_Factory(t) { return new (t || SharedLibService)(); };
+    http;
+    dataSubject = new BehaviorSubject(null);
+    data$ = this.dataSubject.asObservable();
+    constructor(http) {
+        this.http = http;
+    }
+    loadData(url) {
+        this.http.get(url).pipe(map(response => {
+            this.dataSubject.next(response);
+        })).subscribe();
+    }
+    // Method to get the current value directly
+    getData() {
+        return this.dataSubject.value;
+    }
+    static ɵfac = function SharedLibService_Factory(t) { return new (t || SharedLibService)(i0.ɵɵinject(i1.HttpClient)); };
     static ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: SharedLibService, factory: SharedLibService.ɵfac, providedIn: 'root' });
 }
 (() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SharedLibService, [{
@@ -13,7 +29,7 @@ class SharedLibService {
         args: [{
                 providedIn: 'root'
             }]
-    }], () => [], null); })();
+    }], () => [{ type: i1.HttpClient }], null); })();
 
 class SharedLibComponent {
     constructor() { }
@@ -25,7 +41,7 @@ class SharedLibComponent {
             i0.ɵɵtext(1, "Shared");
             i0.ɵɵelementEnd();
             i0.ɵɵelement(2, "lib-auth-lib");
-        } }, dependencies: [i1.AuthLibComponent], encapsulation: 2 });
+        } }, dependencies: [i1$1.AuthLibComponent], encapsulation: 2 });
 }
 (() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SharedLibComponent, [{
         type: Component,
@@ -41,15 +57,19 @@ class SharedLibComponent {
 
 class OtherComponent {
     service;
+    libService;
     // user = 'A';
     user;
-    constructor(service) {
+    data;
+    constructor(service, libService) {
         this.service = service;
+        this.libService = libService;
         this.user = this.service.user;
     }
     ngOnInit() {
+        this.libService.data$.subscribe(data => this.data = data);
     }
-    static ɵfac = function OtherComponent_Factory(t) { return new (t || OtherComponent)(i0.ɵɵdirectiveInject(i1.AuthLibService)); };
+    static ɵfac = function OtherComponent_Factory(t) { return new (t || OtherComponent)(i0.ɵɵdirectiveInject(i1$1.AuthLibService), i0.ɵɵdirectiveInject(SharedLibService)); };
     static ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: OtherComponent, selectors: [["lib-other"]], decls: 2, vars: 1, template: function OtherComponent_Template(rf, ctx) { if (rf & 1) {
             i0.ɵɵelementStart(0, "p");
             i0.ɵɵtext(1);
@@ -66,8 +86,8 @@ class OtherComponent {
                 template: '<p>User: {{user}}</p>',
                 // styleUrls: ['./other.component.css']
             }]
-    }], () => [{ type: i1.AuthLibService }], null); })();
-(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassDebugInfo(OtherComponent, { className: "OtherComponent", filePath: "lib/other/other.component.ts", lineNumber: 9 }); })();
+    }], () => [{ type: i1$1.AuthLibService }, { type: SharedLibService }], null); })();
+(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassDebugInfo(OtherComponent, { className: "OtherComponent", filePath: "lib/other/other.component.ts", lineNumber: 10 }); })();
 
 class SharedLibModule {
     static ɵfac = function SharedLibModule_Factory(t) { return new (t || SharedLibModule)(); };
@@ -79,7 +99,7 @@ class SharedLibModule {
         args: [{
                 declarations: [SharedLibComponent, OtherComponent],
                 imports: [
-                    AuthLibModule,
+                    AuthLibModule
                 ],
                 exports: [SharedLibComponent, OtherComponent]
             }]

@@ -9,13 +9,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "peerDependencies": {
-    "@angular/common": "17.3.1",
-    "@angular/core": "17.3.1"
-  },
   "dependencies": {
     "@angular/animations": "17.3.1",
+    "@angular/common": "17.3.1",
     "@angular/compiler": "17.3.1",
+    "@angular/core": "17.3.1",
     "@angular/forms": "17.3.1",
     "@angular/platform-browser": "17.3.1",
     "@angular/platform-browser-dynamic": "17.3.1",

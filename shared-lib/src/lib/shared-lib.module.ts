@@ -8,7 +8,7 @@ import { AuthLibModule } from 'auth-lib';
 @NgModule({
   declarations: [SharedLibComponent, OtherComponent],
   imports: [
-    AuthLibModule,
+    AuthLibModule
   ],
   exports: [SharedLibComponent, OtherComponent]
 })

@@ -7,11 +7,13 @@ import { FlightsModule } from './flights/flights.module';
 import { TestModule } from './test/test.module';
 import { APP_ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedLibModule } from 'shared-lib';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
+    SharedLibModule,
     FlightsModule,
     TestModule,
     RouterModule.forRoot(APP_ROUTES)

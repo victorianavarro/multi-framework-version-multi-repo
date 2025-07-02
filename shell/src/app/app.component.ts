@@ -2,6 +2,7 @@ import { Component, NgZone } from '@angular/core';
 import { AuthLibService } from 'auth-lib';
 import { ConfigService } from './config.service';
 import { map } from 'rxjs';
+import { SharedLibService } from 'shared-lib';
 
 declare const require: any;
 
@@ -17,7 +18,9 @@ export class AppComponent {
   constructor(
     private service: AuthLibService,
     private ngZone: NgZone,
-    private configService: ConfigService) {
+    private configService: ConfigService,
+    private sharedLibService: SharedLibService
+  ) {
     // Not necessary anymore, when calling the bootstrap helper with appType: 'shell':
     // shareNgZone(ngZone);
     this.service.login('Max', null);
@@ -32,6 +35,8 @@ export class AppComponent {
     ).subscribe(items => {
       this.menuItems = items;
     });
+
+    this.sharedLibService.loadData('assets/dummyData.json');
   }
 }
 
