@@ -1,0 +1,9 @@
+{
+  "componentType": "remote",
+  "path": "flights",
+  "navigatePath": "flights/flights-search",
+  "remoteEntry": "http://localhost:3000/remoteEntry.js",
+  "exposedModule": "./FlightsModule",
+  "moduleName": "FlightsModule",
+  "options": {}
+}
