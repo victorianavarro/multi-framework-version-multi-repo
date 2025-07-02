@@ -19,8 +19,16 @@
   },
   {
     "componentType": "remote",
-    "path": "whole_app",
+    "path": "mfe1",
     "remoteEntry": "http://localhost:3000/remoteEntry.js",
+    "exposedModule": "./AppModule",
+    "moduleName": "AppModule",
+    "options": {}
+  },
+    {
+    "componentType": "remote",
+    "path": "mfe2",
+    "remoteEntry": "http://localhost:4000/remoteEntry.js",
     "exposedModule": "./AppModule",
     "moduleName": "AppModule",
     "options": {}

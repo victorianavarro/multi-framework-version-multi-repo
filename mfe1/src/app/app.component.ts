@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.libService.data$.subscribe(data => {
       this.data = data; // Subscribe to observable for changes
+      console.log('MFE1 : libService data ');
     });
   }
 }

@@ -14,11 +14,15 @@ export class OtherComponent implements OnInit {
   data: any;
 
   constructor(private service: AuthLibService, private libService: SharedLibService) {
-    this. user = this.service.user;
+    this.user = this.service.user;
   }
 
   ngOnInit(): void {
-    this.libService.data$.subscribe(data => this.data = data);
+    this.libService.data$.subscribe(data => {
+      this.data = data;
+      console.log(data)
+    }
+    );
   }
 
 }
