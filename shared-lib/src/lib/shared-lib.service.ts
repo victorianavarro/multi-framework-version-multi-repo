@@ -16,6 +16,7 @@ export class SharedLibService {
   loadData(url: string): void {
     this.http.get<any>(url).pipe(
       map(response => {
+        console.log("Shared lib: saving data in loadData")
         this.dataSubject.next(response);
       })
     ).subscribe();

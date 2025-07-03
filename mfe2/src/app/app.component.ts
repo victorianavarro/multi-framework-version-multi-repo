@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { SharedLibService } from 'shared-lib';
 
 @Component({
@@ -20,5 +20,7 @@ export class AppComponent implements OnInit {
       this.data = data; // Subscribe to observable for changes
       console.log('MFE2 : libService data ');
     });
+
+    console.log(this.libService.getData());
   }
 }
