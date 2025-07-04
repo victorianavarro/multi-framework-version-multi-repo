@@ -15,11 +15,6 @@
       "es2018",
       "dom"
     ],
-    "paths": {
-      "shared-lib": [
-        "../shared-lib/dist"
-      ]
-    }
   },
   "angularCompilerOptions": {
     "enableIvy": false
