@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 3000",
-    "build": "ng build",
+    "build": "ng cache clean && npm uninstall shared-lib && npm install shared-lib@file:../out/shared-lib-0.0.1.tgz && ng build && npx http-server ./dist -p 3000 --cors",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

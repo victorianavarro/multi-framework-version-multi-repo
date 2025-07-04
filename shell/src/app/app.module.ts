@@ -8,7 +8,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthLibModule } from 'auth-lib';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-// import { SharedLibModule } from 'projects/shared-lib/src/public-api';
 import { SharedLibModule } from 'shared-lib';
 import { ModuleFederationToolsModule, WebComponentWrapper, WebComponentWrapperOptions } from '@angular-architects/module-federation-tools';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -21,7 +20,7 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
   imports: [
     BrowserModule,
     AuthLibModule,
-    SharedLibModule,
+    SharedLibModule.forRoot(),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([]),

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4200",
+    "start": "ng cache clean && npm uninstall shared-lib && npm install shared-lib@file:../out/shared-lib-0.0.1.tgz && ng serve --port 4200",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

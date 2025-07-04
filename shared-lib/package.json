@@ -18,7 +18,8 @@
   "peerDependencies": {
     "@angular/common": "17.3.1",
     "@angular/core": "17.3.1",
-    "auth-lib": "file:../out/auth-lib-0.0.1.tgz"
+    "auth-lib": "file:../out/auth-lib-0.0.1.tgz",
+    "shared-lib": "file:../out/shared-lib-0.0.1.tgz"
   },
   "dependencies": {
     "tslib": "^2.0.0"

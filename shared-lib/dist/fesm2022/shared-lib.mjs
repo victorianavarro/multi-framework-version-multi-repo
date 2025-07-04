@@ -14,6 +14,7 @@ class SharedLibService {
     }
     loadData(url) {
         this.http.get(url).pipe(map(response => {
+            console.log("Shared lib: saving data in loadData");
             this.dataSubject.next(response);
         })).subscribe();
     }
@@ -22,13 +23,10 @@ class SharedLibService {
         return this.dataSubject.value;
     }
     static ɵfac = function SharedLibService_Factory(t) { return new (t || SharedLibService)(i0.ɵɵinject(i1.HttpClient)); };
-    static ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: SharedLibService, factory: SharedLibService.ɵfac, providedIn: 'root' });
+    static ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: SharedLibService, factory: SharedLibService.ɵfac });
 }
 (() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SharedLibService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
+        type: Injectable
     }], () => [{ type: i1.HttpClient }], null); })();
 
 class SharedLibComponent {
@@ -53,7 +51,7 @@ class SharedLibComponent {
   `
             }]
     }], () => [], null); })();
-(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassDebugInfo(SharedLibComponent, { className: "SharedLibComponent", filePath: "lib/shared-lib.component.ts", lineNumber: 10 }); })();
+(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassDebugInfo(SharedLibComponent, { className: "SharedLibComponent", filePath: "lib\\shared-lib.component.ts", lineNumber: 10 }); })();
 
 class OtherComponent {
     service;
@@ -67,30 +65,31 @@ class OtherComponent {
         this.user = this.service.user;
     }
     ngOnInit() {
-        this.libService.data$.subscribe(data => this.data = data);
+        this.libService.data$.subscribe(data => {
+            this.data = data;
+            console.log(data);
+        });
     }
     static ɵfac = function OtherComponent_Factory(t) { return new (t || OtherComponent)(i0.ɵɵdirectiveInject(i1$1.AuthLibService), i0.ɵɵdirectiveInject(SharedLibService)); };
-    static ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: OtherComponent, selectors: [["lib-other"]], decls: 4, vars: 2, template: function OtherComponent_Template(rf, ctx) { if (rf & 1) {
+    static ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: OtherComponent, selectors: [["lib-other"]], decls: 2, vars: 0, template: function OtherComponent_Template(rf, ctx) { if (rf & 1) {
             i0.ɵɵelementStart(0, "p");
-            i0.ɵɵtext(1);
+            i0.ɵɵtext(1, "Other component updated");
             i0.ɵɵelementEnd();
-            i0.ɵɵelementStart(2, "p");
-            i0.ɵɵtext(3);
-            i0.ɵɵelementEnd();
-        } if (rf & 2) {
-            i0.ɵɵadvance();
-            i0.ɵɵtextInterpolate1("User: ", ctx.user, "");
-            i0.ɵɵadvance(2);
-            i0.ɵɵtextInterpolate1("Lib data: ", ctx.data, "");
         } }, encapsulation: 2 });
 }
 (() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(OtherComponent, [{
         type: Component,
-        args: [{ selector: 'lib-other', template: "<p>User: {{user}}</p>\n<p>Lib data: {{ data }}</p>" }]
+        args: [{ selector: 'lib-other', template: "<!-- <p>User: {{user}}</p> -->\r\n<p>Other component updated</p>" }]
     }], () => [{ type: i1$1.AuthLibService }, { type: SharedLibService }], null); })();
-(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassDebugInfo(OtherComponent, { className: "OtherComponent", filePath: "lib/other/other.component.ts", lineNumber: 10 }); })();
+(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassDebugInfo(OtherComponent, { className: "OtherComponent", filePath: "lib\\other\\other.component.ts", lineNumber: 10 }); })();
 
 class SharedLibModule {
+    static forRoot() {
+        return {
+            ngModule: SharedLibModule,
+            providers: [SharedLibService]
+        };
+    }
     static ɵfac = function SharedLibModule_Factory(t) { return new (t || SharedLibModule)(); };
     static ɵmod = /*@__PURE__*/ i0.ɵɵdefineNgModule({ type: SharedLibModule });
     static ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ imports: [AuthLibModule] });
@@ -102,7 +101,7 @@ class SharedLibModule {
                 imports: [
                     AuthLibModule
                 ],
-                exports: [SharedLibComponent, OtherComponent]
+                exports: [SharedLibComponent, OtherComponent],
             }]
     }], null, null); })();
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(SharedLibModule, { declarations: [SharedLibComponent, OtherComponent], imports: [AuthLibModule], exports: [SharedLibComponent, OtherComponent] }); })();

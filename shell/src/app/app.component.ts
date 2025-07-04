@@ -36,6 +36,8 @@ export class AppComponent {
       this.menuItems = items;
     });
 
+    console.log(`App component shell app`, this.sharedLibService);
+    
     this.sharedLibService.loadData('assets/dummyData.json');
   }
 }
