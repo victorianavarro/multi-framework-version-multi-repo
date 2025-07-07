@@ -1,2 +1,9 @@
 <!-- <p>User: {{user}}</p> -->
-<p>Lib data: {{ data.remoteEntry }}</p>
+<div style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+  <h4>Shared Library Component</h4>
+  <p><strong>Auth User:</strong> {{ user || 'Not authenticated' }}</p>
+  <p><strong>Shared Data:</strong> {{ data?.remoteEntry || 'No data' }}</p>
+  <div *ngIf="data">
+    <small>Full data: {{ data | json }}</small>
+  </div>
+</div>

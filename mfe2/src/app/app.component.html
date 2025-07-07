@@ -1,2 +1,26 @@
+<div style="border: 2px solid green; padding: 10px; margin: 10px;">
+  <h2>MFE2 - Shared Data Display</h2>
+  
+  <div style="margin-bottom: 10px;">
+    <h3>Authenticated User:</h3>
+    <p><strong>User:</strong> {{ user || 'Not authenticated' }}</p>
+  </div>
+  
+  <div *ngIf="data">
+    <h3>Shared Service Data:</h3>
+    <pre>{{ data | json }}</pre>
+  </div>
+  
+  <div *ngIf="!data">
+    <h3>No shared data available</h3>
+    <p>Waiting for data from Shell...</p>
+  </div>
+  
+  <div style="margin-top: 10px;">
+    <h3>Shared Library Component:</h3>
+    <lib-other></lib-other>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
 mfe2 : Lib service data:  {{data.remoteEntry }}

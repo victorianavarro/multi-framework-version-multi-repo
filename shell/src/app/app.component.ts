@@ -12,18 +12,20 @@ declare const require: any;
 })
 export class AppComponent {
   public menuItems: any[] = [];
+  public loadedData: any = null;
   title = 'shell';
   ngVersion = require('../../package.json').dependencies['@angular/core'];
 
   constructor(
-    private service: AuthLibService,
+    public authService: AuthLibService,
     private ngZone: NgZone,
     private configService: ConfigService,
     private sharedLibService: SharedLibService
   ) {
     // Not necessary anymore, when calling the bootstrap helper with appType: 'shell':
     // shareNgZone(ngZone);
-    this.service.login('Max', null);
+    this.authService.login('Max', null);
+    console.log('Shell: User logged in as:', this.authService.user);
   }
 
   ngOnInit() {
@@ -36,7 +38,14 @@ export class AppComponent {
       this.menuItems = items;
     });
 
+    // Load data and subscribe to see what's loaded
     this.sharedLibService.loadData('assets/dummyData.json');
+    
+    // Subscribe to see the loaded data
+    this.sharedLibService.data$.subscribe(data => {
+      this.loadedData = data;
+      console.log('Shell: Data loaded:', data);
+    });
   }
 }
 

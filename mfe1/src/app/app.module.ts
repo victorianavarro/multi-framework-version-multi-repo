@@ -8,11 +8,13 @@ import { TestModule } from './test/test.module';
 import { APP_ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedLibModule } from 'shared-lib';
+import { AuthLibModule } from 'auth-lib';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
+    AuthLibModule,
     SharedLibModule,
     FlightsModule,
     TestModule,

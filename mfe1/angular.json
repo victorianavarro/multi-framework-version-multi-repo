@@ -52,7 +52,8 @@
           "options": {
             "browserTarget": "mfe1:build",
             "publicHost": "http://localhost:3000",
-            "port": 3000
+            "port": 3000,
+            "extraWebpackConfig": "webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -66,5 +67,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "c0ec6309-edd8-496b-a94b-cdfed1e26843"
   }
 }

@@ -1,10 +1,32 @@
-
-
 <ul>
   <li *ngFor="let item of menuItems">
       <a [routerLink]="item.path">{{ item.label }}</a>
   </li>
 </ul>
+
+<div style="border: 2px solid red; padding: 10px; margin: 10px;">
+  <h2>Shell - Data Source</h2>
+  
+  <div>
+    <h3>Authenticated User:</h3>
+    <p><strong>User:</strong> {{ authService.user || 'Not authenticated' }}</p>
+  </div>
+  
+  <div>
+    <h3>Loaded Data:</h3>
+    <div *ngIf="loadedData">
+      <pre>{{ loadedData | json }}</pre>
+    </div>
+    <div *ngIf="!loadedData">
+      <p>No data loaded yet</p>
+    </div>
+  </div>
+  
+  <div style="margin-top: 10px;">
+    <h3>Shared Library Component:</h3>
+    <lib-other></lib-other>
+  </div>
+</div>
 
 <p class="version">Angular Version: {{ngVersion}}</p>
 
